@@ -1,1 +1,1 @@
-geng -c %1 monog.txt && directg monog.txt directg.txt && showg -q -a directg.txt strings.txt && del monog.txt && del directg.txt && del /q results\* && main.o
+geng -c %1 monog.txt && directg monog.txt directg.txt && showg -q -a directg.txt strings.txt && del monog.txt && del directg.txt && del /f /s /q results >nul & rmdir /s /q results >nul & mkdir results >nul && main.o && echo "Files generated successfully!"
