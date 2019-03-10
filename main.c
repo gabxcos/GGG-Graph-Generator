@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
             }
         }
         
-        char filename[10];
+        char filename[20];
         sprintf(filename, "results/%d.gfd", counter);
         
         FILE* graphfile = fopen(filename, "w");

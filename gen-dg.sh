@@ -1,0 +1,1 @@
+geng -c $1 monog.txt && directg monog.txt directg.txt && showg -q -a directg.txt strings.txt && rm ./monog.txt && rm ./directg.txt && rm -r ./results; mkdir results && ./main.o && echo "Files generated successfully!";
