@@ -18,6 +18,7 @@ int main(int argc, char** argv) {
     
     while(fgets(readbuffer, 3, f)){
         int i = atoi(readbuffer);
+		int num_edges = 0;
         
         int matrix[i][i];
         char linebuffer[i+2];
@@ -25,7 +26,9 @@ int main(int argc, char** argv) {
         for (int j = 0; j < i; j++){
             fgets(linebuffer, i+2, f);
             for (int k = 0; k < i; k++){
-                matrix[j][k] = (int)(linebuffer[k]-'0');
+                int num = (int)(linebuffer[k]-'0');
+				matrix[j][k] = num;
+				if (num == 1) num_edges++;
             }
         }
         
@@ -34,6 +37,8 @@ int main(int argc, char** argv) {
         
         FILE* graphfile = fopen(filename, "w");
         fprintf(graphfile, "directed\n%d", i);
+		for (int w = 0; w < i; w++) fprintf(graphfile, "\n0");
+		fprintf(graphfile, "\n%d", num_edges);
         for (int x = 0; x < i; x++){
             for (int y = 0; y < i; y++){
                 if (matrix[x][y]==1) fprintf(graphfile, "\n%d %d", x, y);
